@@ -1,0 +1,409 @@
+<html>
+    
+    
+    <head>
+    <title>Shoots And Ladders</title>
+    </head>
+
+
+    <script type="text/javascript">
+             
+        var rand;       //For random number creation.
+        var roll;       //Result of a given dice roll.
+        var cPlayer;    //Currently acting player.
+        var newPos;     //Position post-roll.
+        var cPos;       //Position pre-roll
+        var turn = 1;   //Current turn (always begins with P1).
+        
+        var p1 = new Image(66,66);
+        p1.src = "https://vignette.wikia.nocookie.net/dont-starve-game/images/1/1d/Wilson_Map_Icon.png/revision/latest?cb=20150809051027";
+        var p1Pos = 1;
+        var p1Name = "Player 1";
+        
+        var p2 = new Image(66,66);
+        p2.src = "https://jobs.onemainfinancial.com/Content/OneMainFinancial/client/icons/1103.png";
+        var p2Pos = 1;
+        var p2Name = "Player 2";
+        
+        
+        function rollAndMove(){
+            
+            if(turn % 2){
+                //alert("Odd Turn"); 
+                cPos = document.getElementById("cell"+p1Pos);
+                rand = Math.floor((Math.random() * 6) + 1);
+                roll = rand;
+                
+                if((p1Pos + roll) > 81){
+                    alert("P1 cannot move; you've rolled too high.")
+                }else{
+                    p1Pos += roll;
+                    newPos = document.getElementById("cell"+p1Pos);
+                    cPos.src = null;
+                    newPos.src = p1.src;
+                }
+    
+ //LADDERS               
+                if(p1Pos == 4){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 13;
+                    newPos = document.getElementById("cell"+13);
+                    newPos.src = p1.src;
+                    
+                }else if(p1Pos == 8){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 28;
+                    newPos = document.getElementById("cell"+28);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 25){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 70;
+                    newPos = document.getElementById("cell"+70);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 35){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 39;
+                    newPos = document.getElementById("cell"+39);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 46){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 65;
+                    newPos = document.getElementById("cell"+65);
+                    newPos.src = p1.src;
+                    
+                }else if(p1Pos == 56){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p1Pos = 72;
+                    newPos = document.getElementById("cell"+72);
+                    newPos.src = p1.src;
+                }
+                
+//SHOOTS
+                if(p1Pos == 24){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 7;
+                    newPos = document.getElementById("cell"+7);
+                    newPos.src = p1.src;
+                    
+                }else if(p1Pos == 32){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 3;
+                    newPos = document.getElementById("cell"+3);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 36){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 17;
+                    newPos = document.getElementById("cell"+17);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 55){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 37;
+                    newPos = document.getElementById("cell"+37);
+                    newPos.src = p1.src;
+                
+                }else if(p1Pos == 55){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 37;
+                    newPos = document.getElementById("cell"+37);
+                    newPos.src = p1.src;
+                    
+                }else if(p1Pos == 77){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 38;
+                    newPos = document.getElementById("cell"+38);
+                    newPos.src = p1.src;
+                }else if(p1Pos == 80){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p1Pos = 30;
+                    newPos = document.getElementById("cell"+30);
+                    newPos.src = p1.src;
+                }
+                
+                
+            checkWin(p1Pos, p1Name);
+                
+                
+            }else{
+                //alert("Even Turn");  
+                cPos = document.getElementById("cell"+p2Pos);
+                rand = Math.floor((Math.random() * 6) + 1);
+                roll = rand;
+                
+                if((p2Pos + roll) > 81){
+                    alert("P2 cannot move; you've rolled too high.")
+                }else{
+                    p2Pos += roll;
+                    newPos = document.getElementById("cell"+p2Pos);
+                    cPos.src = null;
+                    newPos.src = p2.src;
+                }
+                
+//LADDER
+                if(p2Pos == 4){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 13;
+                    newPos = document.getElementById("cell"+13);
+                    newPos.src = p2.src;
+                    
+                }else if(p2Pos == 8){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 28;
+                    newPos = document.getElementById("cell"+28);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 25){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 70;
+                    newPos = document.getElementById("cell"+70);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 35){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 39;
+                    newPos = document.getElementById("cell"+39);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 46){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 65;
+                    newPos = document.getElementById("cell"+65);
+                    newPos.src = p2.src;
+                    
+                }else if(p2Pos == 56){
+                    alert("Ladder");
+                    newPos.src = null;
+                    p2Pos = 72;
+                    newPos = document.getElementById("cell"+72);
+                    newPos.src = p2.src;
+                }
+                
+//SHOOT
+                
+            if(p2Pos == 24){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 7;
+                    newPos = document.getElementById("cell"+7);
+                    newPos.src = p2.src;
+                    
+                }else if(p2Pos == 32){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 3;
+                    newPos = document.getElementById("cell"+3);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 36){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 17;
+                    newPos = document.getElementById("cell"+17);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 55){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 37;
+                    newPos = document.getElementById("cell"+37);
+                    newPos.src = p2.src;
+                
+                }else if(p2Pos == 55){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 37;
+                    newPos = document.getElementById("cell"+37);
+                    newPos.src = p2.src;
+                    
+                }else if(p2Pos == 77){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 38;
+                    newPos = document.getElementById("cell"+38);
+                    newPos.src = p2.src;
+                }else if(p2Pos == 80){
+                    alert("Shoot");
+                    newPos.src = null;
+                    p2Pos = 30;
+                    newPos = document.getElementById("cell"+30);
+                    newPos.src = p2.src;
+                }
+                
+            checkWin(p2Pos, p2Name);
+                
+                
+            }
+                
+        }
+        
+        function checkWin(pos, name){
+            if(pos == 81){
+                alert(name + " Wins!");
+            }else{
+                turn++;
+            }
+            
+        }
+    </script>
+    
+    
+    <style>
+        
+        body{
+            background-color: papayawhip;   
+        }
+        .board{
+            border-style: solid;
+            border-width: thin;
+        }
+        td{
+            max-height: 66px;
+            height: 66px;
+            max-width: 66px;
+            width: 66px;
+            border: 1px solid black;
+        }
+    </style>
+    
+
+    <body onload = "setup();">
+        
+        <table id = "gB" class="board" cellpadding="0" cellspacing="0">
+            
+        <tr>
+            <td style = "background-image: url(board/73.jpg);"><img id="cell73" src="" alt="73"  ></td>
+            <td style = "background-image: url(board/74.jpg);"><img id="cell74" src="" alt="74"  ></td>
+            <td style = "background-image: url(board/75.jpg);"><img id="cell75" src="" alt="75"  ></td>
+            <td style = "background-image: url(board/76.jpg);"><img id="cell76" src="" alt="76"  ></td>
+            <td style = "background-image: url(board/77.jpg);"><img id="cell77" src="" alt="77"  ></td>
+            <td style = "background-image: url(board/78.jpg);"><img id="cell78" src="" alt="78"  ></td>
+            <td style = "background-image: url(board/79.jpg);"><img id="cell79" src="" alt="79"  ></td>
+            <td style = "background-image: url(board/80.jpg);"><img id="cell80" src="" alt="80"  ></td>
+            <td style = "background-image: url(board/81.jpg);"><img id="cell81" src="" alt="81"  ></td>
+            <td rowspan="9" valign="center" align="center">
+            <h2>Control Panel</h2>
+            <h4><span id="P1Text">Player 1</span><h4>
+            <p><img id="P1" src="https://vignette.wikia.nocookie.net/dont-starve-game/images/1/1d/Wilson_Map_Icon.png/revision/latest?cb=20150809051027" alt=""></p>
+            <p><img src="http://balance3e.com/Images/die1.gif" alt="click to roll" onclick="rollAndMove();"></p>
+            <h4><span id="P2Text">Player 2</span><h4>
+            <p><img id="P2" src="https://jobs.onemainfinancial.com/Content/OneMainFinancial/client/icons/1103.png"></p>    
+            
+            </td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/72.jpg);"><img id="cell72" src="" alt="72"  ></td>
+            <td style = "background-image: url(board/71.jpg);"><img id="cell71" src="" alt="71"  ></td>
+            <td style = "background-image: url(board/70.jpg);"><img id="cell70" src="" alt="70"  ></td>
+            <td style = "background-image: url(board/69.jpg);"><img id="cell69" src="" alt="69"  ></td>
+            <td style = "background-image: url(board/68.jpg);"><img id="cell68" src="" alt="68"  ></td>
+            <td style = "background-image: url(board/67.jpg);"><img id="cell67" src="" alt="67"  ></td>
+            <td style = "background-image: url(board/66.jpg);"><img id="cell66" src="" alt="66"  ></td>
+            <td style = "background-image: url(board/65.jpg);"><img id="cell65" src="" alt="65"  ></td>
+            <td style = "background-image: url(board/64.jpg);"><img id="cell64" src="" alt="64"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/55.jpg);"><img id="cell55" src="" alt="55"  ></td>
+            <td style = "background-image: url(board/56.jpg);"><img id="cell56" src="" alt="56"  ></td>
+            <td style = "background-image: url(board/57.jpg);"><img id="cell57" src="" alt="57"  ></td>
+            <td style = "background-image: url(board/58.jpg);"><img id="cell58" src="" alt="58"  ></td>
+            <td style = "background-image: url(board/59.jpg);"><img id="cell59" src="" alt="59"  ></td>
+            <td style = "background-image: url(board/60.jpg);"><img id="cell60" src="" alt="60"  ></td>
+            <td style = "background-image: url(board/61.jpg);"><img id="cell61" src="" alt="61"  ></td>
+            <td style = "background-image: url(board/62.jpg);"><img id="cell62" src="" alt="62"  ></td>
+            <td style = "background-image: url(board/63.jpg);"><img id="cell63" src="" alt="63"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/54.jpg);"><img id="cell54" src="" alt="54"  ></td>
+            <td style = "background-image: url(board/53.jpg);"><img id="cell53" src="" alt="53"  ></td>
+            <td style = "background-image: url(board/52.jpg);"><img id="cell52" src="" alt="52"  ></td>
+            <td style = "background-image: url(board/51.jpg);"><img id="cell51" src="" alt="51"  ></td>
+            <td style = "background-image: url(board/50.jpg);"><img id="cell50" src="" alt="50"  ></td>
+            <td style = "background-image: url(board/49.jpg);"><img id="cell49" src="" alt="49"  ></td>
+            <td style = "background-image: url(board/48.jpg);"><img id="cell48" src="" alt="48"  ></td>
+            <td style = "background-image: url(board/47.jpg);"><img id="cell47" src="" alt="47"  ></td>
+            <td style = "background-image: url(board/46.jpg);"><img id="cell46" src="" alt="46"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/37.jpg);"><img id="cell37" src="" alt="37"  ></td>
+            <td style = "background-image: url(board/38.jpg);"><img id="cell38" src="" alt="38"  ></td>
+            <td style = "background-image: url(board/39.jpg);"><img id="cell39" src="" alt="39"  ></td>
+            <td style = "background-image: url(board/40.jpg);"><img id="cell40" src="" alt="40"  ></td>
+            <td style = "background-image: url(board/41.jpg);"><img id="cell41" src="" alt="41"  ></td>
+            <td style = "background-image: url(board/42.jpg);"><img id="cell42" src="" alt="42"  ></td>
+            <td style = "background-image: url(board/43.jpg);"><img id="cell43" src="" alt="43"  ></td>
+            <td style = "background-image: url(board/44.jpg);"><img id="cell44" src="" alt="44"  ></td>
+            <td style = "background-image: url(board/45.jpg);"><img id="cell45" src="" alt="45"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/36.jpg);"><img id="cell36" src="" alt="36"  ></td>
+            <td style = "background-image: url(board/35.jpg);"><img id="cell35" src="" alt="35"  ></td>
+            <td style = "background-image: url(board/34.jpg);"><img id="cell34" src="" alt="34"  ></td>
+            <td style = "background-image: url(board/33.jpg);"><img id="cell33" src="" alt="33"  ></td>
+            <td style = "background-image: url(board/32.jpg);"><img id="cell32" src="" alt="32"  ></td>
+            <td style = "background-image: url(board/31.jpg);"><img id="cell31" src="" alt="31"  ></td>
+            <td style = "background-image: url(board/30.jpg);"><img id="cell30" src="" alt="30"  ></td>
+            <td style = "background-image: url(board/29.jpg);"><img id="cell29" src="" alt="29"  ></td>
+            <td style = "background-image: url(board/28.jpg);"><img id="cell28" src="" alt="28"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/19.jpg);"><img id="cell19" src="" alt="19"  ></td>
+            <td style = "background-image: url(board/20.jpg);"><img id="cell20" src="" alt="20"  ></td>
+            <td style = "background-image: url(board/21.jpg);"><img id="cell21" src="" alt="21"  ></td>
+            <td style = "background-image: url(board/22.jpg);"><img id="cell22" src="" alt="22"  ></td>
+            <td style = "background-image: url(board/23.jpg);"><img id="cell23" src="" alt="23"  ></td>
+            <td style = "background-image: url(board/24.jpg);"><img id="cell24" src="" alt="24"  ></td>
+            <td style = "background-image: url(board/25.jpg);"><img id="cell25" src="" alt="25"  ></td>
+            <td style = "background-image: url(board/26.jpg);"><img id="cell26" src="" alt="26"  ></td>
+            <td style = "background-image: url(board/27.jpg);"><img id="cell27" src="" alt="27"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/18.jpg);"><img id="cell18" src="" alt="18"  ></td>
+            <td style = "background-image: url(board/17.jpg);"><img id="cell17" src="" alt="17"  ></td>
+            <td style = "background-image: url(board/16.jpg);"><img id="cell16" src="" alt="16"  ></td>
+            <td style = "background-image: url(board/15.jpg);"><img id="cell15" src="" alt="15"  ></td>
+            <td style = "background-image: url(board/14.jpg);"><img id="cell14" src="" alt="14"  ></td>
+            <td style = "background-image: url(board/13.jpg);"><img id="cell13" src="" alt="13"  ></td>
+            <td style = "background-image: url(board/12.jpg);"><img id="cell12" src="" alt="12"  ></td>
+            <td style = "background-image: url(board/11.jpg);"><img id="cell11" src="" alt="11"  ></td>
+            <td style = "background-image: url(board/10.jpg);"><img id="cell10" src="" alt="10"  ></td>
+        </tr>
+        <tr>
+            <td style = "background-image: url(board/1.jpg);"><img id="cell1" src="" alt="1"  ></td>
+            <td style = "background-image: url(board/2.jpg);"><img id="cell2" src="" alt="2"  ></td>
+            <td style = "background-image: url(board/3.jpg);"><img id="cell3" src="" alt="3"  ></td>
+            <td style = "background-image: url(board/4.jpg);"><img id="cell4" src="" alt="4"  ></td>
+            <td style = "background-image: url(board/5.jpg);"><img id="cell5" src="" alt="5"  ></td>
+            <td style = "background-image: url(board/6.jpg);"><img id="cell6" src="" alt="6"  ></td>
+            <td style = "background-image: url(board/7.jpg);"><img id="cell7" src="" alt="7"  ></td>
+            <td style = "background-image: url(board/8.jpg);"><img id="cell8" src="" alt="8"  ></td>
+            <td style = "background-image: url(board/9.jpg);"><img id="cell9" src="" alt="9"  ></td>
+        </tr>
+                
+    </table>
+            
+    </body>
+        
+        
+</html>
