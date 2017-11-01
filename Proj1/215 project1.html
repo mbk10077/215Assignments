@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Animate-A-Go-Go</title>
+        <style>
+            
+            body{
+                background-color: papayawhip;   
+            }
+            table{
+                max-width: 800px;
+                min-width: 480px;
+                margin: 0px;
+                padding: 0px;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+                margin: 0px;
+                padding: 1px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #000000;
+            }
+            img.s{
+                border-color: #00ff00;   
+            }
+            img.s2{
+                border-color: #000000;   
+            }
+            img.r{
+                width: 200px;
+                height: 200px;
+                margin: 0px;
+                padding: 1px;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <script type="text/javascript">
+        var imageArray = [];
+        var selected = 0;
+        var loop = 0;
+        
+        function selectImages(sel){
+            
+            imageArray[selected] = sel;
+            selected++;
+            
+            sel.className = "s";
+            //sel.style.border = "2px solid #00ff00";
+        }
+        
+        function Animate(){
+            
+            if(selected >= imageArray.length){
+                selected = 0;
+            }  
+            
+            document.getElementById("result").src = imageArray[selected].src;
+            selected++;
+            
+            loop = setTimeout("Animate()", 200);
+        }
+        
+        function Reset(){
+            
+            for(var j = 0; j < imageArray.length; j++){
+            imageArray[j].className = "s2";
+            }
+        
+            imageArray.length = 0;
+            selected = 0;
+            clearTimeout(loop);
+            
+            document.getElementById("result").src = "https://i.imgur.com/NakfHv4.jpg";
+        } 
+    </script>
+    
+    <body>
+        <table>
+            <td class="select">
+		        <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/attentionLeft.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/attentionLeft.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/attentionRight.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/attentionRight.jpg" onclick = "selectImages(this)"/>
+                        
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bBall.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bBall.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bend1.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bend1.jpg" onclick = "selectImages(this)"/>
+                 
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bendBall.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/bendBall.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/cowForward.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/cowForward.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/cowLeft.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/cowLeft.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/escape.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/escape.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/handsOut.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/handsOut.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/handsUp.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/handsUp.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdBall.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdBall.jpg" onclick = "selectImages(this)"/>
+			     
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdBall.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdBall.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdRabbit.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/holdRabbit.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/lunchLady.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/lunchLady.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/rabbit.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/rabbit.jpg" onclick = "selectImages(this)"/>
+			    
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/safe.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/safe.jpg" onclick = "selectImages(this)"/>
+               
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/standBall.jpg"  id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/standBall.jpg" onclick = "selectImages(this)"/>
+			    
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/startBall.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/startBall.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/startEmpty.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/startEmpty.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/walkLFF.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/walkLFF.jpg" onclick = "selectImages(this)"/>
+                
+                <img src = "http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/walkRFF.jpg" id="http://cpscjava.sru.edu/CPSC-215-01.0917/paul.mullins/proj1%20-%20HTML-JS/anim/walkRFF.jpg" onclick = "selectImages(this)"/>
+                </td>
+        </table>
+        
+        <br>
+        
+        <button id="Animate" title = "Animate" onclick = "Animate()">Animate Selection</button>
+        <button id="Reset Selection" title = "Rset" onclick = "Reset()">Reset Selection</button>
+        
+        <hr>
+        
+        <center> <img class = "r" src = "https://i.imgur.com/NakfHv4.jpg" id = "result"/> </center>
+       
+    </body>
+    
+</html>
